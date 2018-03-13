@@ -21,8 +21,7 @@ include '../vendor/autoload.php';
 //$uDAO = new \App\DAO\UsuarioDAO();
 //$uDAO->verificar();
 
-if ($_GET['msg'] == 1)
-    echo "<div class='alert alert-success'>Produto excluido com sucesso!</div>";
+
 if ($_GET['msg'] == 2)
     echo "<div class='alert alert-success'>Produto alterado com sucesso!</div>";
 
@@ -39,11 +38,11 @@ if (count($fechamento) > 0) {
         <tr class='text-center'>
             <th>ID</th>
             <th class="text-left">Nome</th>
-            <th>Visualizar</th>
-            <!-- <th class="text-left">Problema Constatado</th>
+
+            <th class="text-left">Problema Constatado</th>
             <th>Solução</th>
             <th>Valor</th>
-            <th>Data de Fechamento</th> -->
+            <th>Data de Fechamento</th>
             <th>Alterar</th>
 
 
@@ -53,11 +52,10 @@ if (count($fechamento) > 0) {
             echo "<tr class='text-center'>";
             echo "<td>{$fechamento->getId()}";
             echo "<td class='text-left'>{$fechamento->getNome()}";
-           /* echo "<td>{$fechamento->getProblemaConstatado()}</td>";
+            echo "<td>{$fechamento->getProblemaConstatado()}</td>";
             echo "<td>".App\Helper\Data::get($fechamento->getSolucao())."</td>";
             echo "<td>{$fechamento->getValor()}</td>";
-            echo "<td>{$fechamento->getDataFechamento()}</td>";*/
-            echo "<td><a class='btn btn-warning' href='visualisar.php?id={$fechamento->getId()}'>Visualizar</a></td>";
+            echo "<td>{$fechamento->getDataFechamento()}</td>";
             echo "<td><a class='btn btn-warning' href='alterar.php?id={$fechamento->getId()}'>Alterar</a></td>";
             echo "</tr>";
         }

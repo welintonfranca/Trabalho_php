@@ -17,6 +17,23 @@ class Fechada
    private $solucao;
    private $valor;
    private $dataFechamento;
+   private $status;
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 
     /**
      * @return mixed

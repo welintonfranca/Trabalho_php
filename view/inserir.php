@@ -1,4 +1,8 @@
 <?php
+$titulo = "Cadastro de produtos";
+include 'cabecalho.php';?>
+<h1>Abrir O.S</h1>
+<?php
 include '../vendor/autoload.php';
 
 //verificar se o usuario esta logado
@@ -39,3 +43,5 @@ if ($_POST){
         <img src="../assets/images/ic_done_white_24px.svg" alt="Cadastrar o produto"> Cadastrar
     </button>
 </form>
+
+<?php include 'rodape.php';?>
