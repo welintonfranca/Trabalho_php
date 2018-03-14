@@ -53,9 +53,37 @@ class AbertaDAO extends Conexao
             echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
         }
     }
+    public function pesquisarUm($aberta){
+        $sql = "select * from aberta where id= :id";
+        try{
+            $p =  $this->conexao->prepare($sql);
+            $p->bindValue(":id", $aberta->getId());
+            $p->execute();
+            return $p->fetch(\PDO::FETCH_ASSOC);
+
+        }catch(\PDOException $e){
+            echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
+        }
+    }
+    public function alterar($aberta){
+        $sql = "update aberta set problemaConstatado = :problemaConstatado, solucao = :solucao, valor= :valor, dataFechamento = :dataFechamento where id = :id";
+        try{
+            $p =  $this->conexao->prepare($sql);
+            $p->bindValue(":problemaConstatado", $aberta->getProblemaConstatado());
+            $p->bindValue(":solucao", $aberta->getSolucao());
+            $p->bindValue(":valor", $aberta->getValor());
+            $p->bindValue(":dataFechamento", $aberta->getDataFechamento());
+            $p->bindValue(":id", $aberta->getId());
+            $p->execute();
+            return true;
+
+        }catch(\PDOException $e){
+            echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
+        }
+    }
 
 
-    
+
 
 
 

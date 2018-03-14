@@ -1,7 +1,7 @@
 <?php
 $titulo = "Pesquisa de produtos";
 include 'cabecalho.php';?>
-    <h1>Pesquisar O.S</h1>
+    <h1>Visualizar O.S</h1>
     <br>
     <form class="form-inline" action="pesquisar.php" method="get">
         <div class="form-group">
@@ -22,14 +22,14 @@ include '../vendor/autoload.php';
 //$uDAO->verificar();
 
 
-if ($_GET['msg'] == 2)
-    echo "<div class='alert alert-success'>Produto alterado com sucesso!</div>";
+//if ($_GET['msg'] == 2)
+   // echo "<div class='alert alert-success'>Produto alterado com sucesso!</div>";
 
-$p = new \App\Model\Fechada();
-isset($_GET['nome']) ? $p->setNome($_GET['nome']) : $p->setNome("");
+$p = new \App\Model\aberta();
+isset($_GET['id']) ? $p->setId($_GET['id']) : $p->setId("");
 
 $pDAO = new \App\DAO\AbertaDAO();
-$fechamento = $pDAO->pesquisar($p);
+$fechamento = $pDAO->pesquisarUm($p);
 
 if (count($fechamento) > 0) {
 
@@ -38,7 +38,6 @@ if (count($fechamento) > 0) {
         <tr class='text-center'>
             <th>ID</th>
             <th class="text-left">Nome</th>
-
             <th class="text-left">Problema Constatado</th>
             <th>Solução</th>
             <th>Valor</th>
@@ -53,14 +52,16 @@ if (count($fechamento) > 0) {
             echo "<td>{$fechamento->getId()}";
             echo "<td class='text-left'>{$fechamento->getNome()}";
             echo "<td>{$fechamento->getProblemaConstatado()}</td>";
-            echo "<td>".App\Helper\Data::get($fechamento->getSolucao())."</td>";
-            echo "<td>{$fechamento->getValor()}</td>";
-            echo "<td>{$fechamento->getDataFechamento()}</td>";
+            echo "<td>{$fechamento->getSolucao()}";
+            echo "<td>".App\Helper\Moeda::get($fechamento->getValor())."</td>";
+            echo "<td>".App\Helper\Data::get($fechamento->getDataFechamento())."</td>";
             echo "<td><a class='btn btn-warning' href='alterar.php?id={$fechamento->getId()}'>Alterar</a></td>";
             echo "</tr>";
         }
+
         ?>
     </table>
+
 
     <?php
 } else {
