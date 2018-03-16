@@ -29,9 +29,9 @@ $p = new \App\Model\aberta();
 isset($_GET['id']) ? $p->setId($_GET['id']) : $p->setId("");
 
 $pDAO = new \App\DAO\AbertaDAO();
-$fechamento = $pDAO->pesquisarUm($p);
+$fechar = $pDAO->visualizarUm($p);
 
-if (count($fechamento) > 0) {
+if (count($fechar) > 0) {
 
     ?>
     <table class='table table-striped table-hover'>
@@ -47,15 +47,15 @@ if (count($fechamento) > 0) {
 
         </tr>
         <?php
-        foreach ($fechamento as $fechamento){
+        foreach ($fechar as $fechar){
             echo "<tr class='text-center'>";
-            echo "<td>{$fechamento->getId()}";
-            echo "<td class='text-left'>{$fechamento->getNome()}";
-            echo "<td>{$fechamento->getProblemaConstatado()}</td>";
-            echo "<td>{$fechamento->getSolucao()}";
-            echo "<td>".App\Helper\Moeda::get($fechamento->getValor())."</td>";
-            echo "<td>".App\Helper\Data::get($fechamento->getDataFechamento())."</td>";
-            echo "<td><a class='btn btn-warning' href='alterar.php?id={$fechamento->getId()}'>Alterar</a></td>";
+            echo "<td>{$fechar->getId()}";
+            echo "<td class='text-left'>{$fechar->getNome()}";
+            echo "<td>{$fechar->getProblemaConstatado()}</td>";
+            echo "<td>{$fechar->getSolucao()}";
+            echo "<td>".App\Helper\Moeda::get($fechar->getValor())."</td>";
+            echo "<td>".App\Helper\Data::get($fechar->getDataFechamento())."</td>";
+            echo "<td><a class='btn btn-warning' href='alterar.php?id={$fechar->getId()}'>Alterar</a></td>";
             echo "</tr>";
         }
 

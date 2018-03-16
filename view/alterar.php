@@ -22,7 +22,7 @@ $p = new \App\Model\Aberta();
 isset($_GET) ? $p->setId($_GET['id']) : $p->setId($_POST['id']);
 
 $pDAO = new \App\DAO\AbertaDAO();
-$resultado = $pDAO->pesquisarUm($p);
+$resultado = $pDAO->visualizar($p);
 
 ?>
 

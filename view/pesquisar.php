@@ -24,7 +24,7 @@ include '../vendor/autoload.php';
 //if ($_GET['msg'] == 2)
     //echo "<div class='alert alert-success'>Produto alterado com sucesso!</div>";
 
-$p = new \App\Model\Fechada();
+$p = new \App\Model\Aberta();
 isset($_GET['nome']) ? $p->setNome($_GET['nome']) : $p->setNome("");
 
 $pDAO = new \App\DAO\AbertaDAO();

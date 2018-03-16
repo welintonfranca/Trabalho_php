@@ -13,10 +13,11 @@ class AbertaDAO extends Conexao
 {
     public function inserir($aberta)
     {
-        $sql = "insert into aberta (nome, descricao, dataAbertura) VALUES (:nome, :descricao, :dataAbertura)";
+        $sql = "insert into aberta (nome,endereco,telefone, descricao, dataAbertura) VALUES (:nome, :endereco, :telefone, :descricao, :dataAbertura)";
         try{
             $i = $this->conexao->prepare($sql);
             $i->bindValue("nome", $aberta->getNome());
+            $i->bindValue("endereco", $aberta->getendereco());
             $i->bindValue("descricao", $aberta->getDescricao());
             $i->bindValue("dataAbertura", $aberta->getDataAbertura());
             $i->execute();
@@ -34,7 +35,7 @@ class AbertaDAO extends Conexao
             $p = $this->conexao->prepare($sql);
             $p->bindValue(":nome", "%".$aberta->getNome()."%");
             $p->execute();
-            return $p->fetchAll(\PDO::FETCH_CLASS, "\App\Model\Fechada");
+            return $p->fetchAll(\PDO::FETCH_CLASS, "\App\Model\Aberta");
 
         }catch (\PDOException $e) {
             echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
@@ -53,8 +54,9 @@ class AbertaDAO extends Conexao
             echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
         }
     }
-    public function pesquisarUm($aberta){
-        $sql = "select * from aberta where id= :id";
+    public function visualizarUm($aberta)
+    {
+        $sql = "select * from aberta where id=  :id";
         try{
             $p =  $this->conexao->prepare($sql);
             $p->bindValue(":id", $aberta->getId());
@@ -65,6 +67,7 @@ class AbertaDAO extends Conexao
             echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
         }
     }
+
     public function alterar($aberta){
         $sql = "update aberta set problemaConstatado = :problemaConstatado, solucao = :solucao, valor= :valor, dataFechamento = :dataFechamento where id = :id";
         try{

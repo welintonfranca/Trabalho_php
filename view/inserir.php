@@ -12,6 +12,8 @@ include '../vendor/autoload.php';
 if ($_POST){
     $p = new \App\Model\Aberta();
     $p->setNome($_POST['nome']);
+    $p->setEndereco($_POST['endereco']);
+    $p->setTelefone($_POST['telefone']);
     $p->setDescricao($_POST['descricao']);
     !empty($_POST{'dataAbertura'}) ? $p->setDataAbertura(\App\Helper\Data::set($_POST['dataAbertura'])) : $p->setDataAbertura(null);
 
@@ -27,6 +29,14 @@ if ($_POST){
     <div class="form-group">
         <label for="nome"><span class="text-danger">*</span> Nome</label>
         <input type="text" id="nome" name="nome" class="form-control" autofocus required>
+    </div>
+    <div class="form-group">
+        <label for="endereco"><span class="text-danger">*</span> Endereço</label>
+        <input type="text" id="endereco" name="endereco" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="telefone"><span class="text-danger">*</span> Telefone</label>
+        <input type="text" id="telefone" name="telefone" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="descricao"><span class="text-danger">*</span> Descrição</label>
