@@ -6,8 +6,8 @@ include 'cabecalho.php';?>
 include '../vendor/autoload.php';
 
 //verificar se o usuario esta logado
-//$uDAO = new \App\DAO\UsuarioDAO();
-//$uDAO->verificar();
+$uDAO = new \App\DAO\UsuarioDAO();
+$uDAO->verificar();
 
 if ($_POST){
     $p = new \App\Model\Aberta();

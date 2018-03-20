@@ -11,6 +11,19 @@ namespace App\DAO;
 
 class AbertaDAO extends Conexao
 {
+    public function cadUsuario($usuario){
+        $sql = "insert into usuarios (email,senha) VALUES (:email, :senha)";
+        try{
+            $i = $this->conexao->prepare($sql);
+            $i->bindValue("email", $usuario->getEmail());
+            $i->bindValue("senha", $usuario->getSenha());
+            $i->execute();
+            return true;
+        }catch (\PDOException $e){
+            echo "<div class='alert alert-danger'>{$e->getMessage()}<\div>";
+
+        }
+    }
     public function inserir($aberta)
     {
         $sql = "insert into aberta (nome,endereco,telefone, descricao, dataAbertura) VALUES (:nome, :endereco, :telefone, :descricao, :dataAbertura)";
@@ -54,19 +67,7 @@ class AbertaDAO extends Conexao
             echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
         }
     }
-    public function visualizarUm($aberta)
-    {
-        $sql = "select * from aberta where id=  :id";
-        try{
-            $p =  $this->conexao->prepare($sql);
-            $p->bindValue(":id", $aberta->getId());
-            $p->execute();
-            return $p->fetch(\PDO::FETCH_ASSOC);
 
-        }catch(\PDOException $e){
-            echo "<div class='alert alert-danger'>{$e->getMessage()}</div>";
-        }
-    }
 
     public function alterar($aberta){
         $sql = "update aberta set problemaConstatado = :problemaConstatado, solucao = :solucao, valor= :valor, dataFechamento = :dataFechamento where id = :id";

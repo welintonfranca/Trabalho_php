@@ -33,11 +33,11 @@ $resultado = $pDAO->visualizar($p);
         <input type="text" id="id" name="id" class="form-control" value="<?php echo $resultado['id'];?>">
     </div>
     <div class="form-group">
-        <label for="problemaConstatado"><span class="text-danger">*</span> Problema Constatado</label>
+        <label for="problemaConstatado"> Problema Constatado</label>
         <input type="text" id="problemaConstatado" name="problemaConstatado" required autofocus class="form-control" value="<?php echo $resultado['problemaConstatado'];?>">
     </div>
     <div class="form-group">
-        <label for="solucao"><span class="text-danger">*</span> Solução</label>
+        <label for="solucao">Solução</label>
         <input type="text" id="solucao" name="solucao" required class="form-control" value="<?php echo $resultado['solucao'];?>">
     </div>
     <div class="form-group">
@@ -48,9 +48,7 @@ $resultado = $pDAO->visualizar($p);
         <label for="dataFechamento">Data de Fechamento</label>
         <input type="date" id="dataFechamento" name="dataFechamento" class="form-control" value="<?php echo $resultado['dataFechamento'];?>">
     </div>
-    <div class="form-group">
-        Os campos com <span class="text-danger">*</span> não podem estar em branco.
-    </div>
+
     <button type="submit" class="btn btn-success">
         <img src="../assets/images/ic_done_white_24px.svg" alt="Alterar o produto"> Alterar
     </button>
