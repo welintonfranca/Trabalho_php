@@ -15,6 +15,7 @@
         <ul class="navbar-nav">
             <li class="nav-item"><a href="inserir.php" class="nav-link">Nova Ordem de Serviço</a></li>
             <li class="nav-item"><a href="pesquisar.php" class="nav-link">Pesquisar O.S</a></li>
+            <li class="nav-item"><a href="usuarios.php" class="nav-link">Alterar Usuario</a></li>
         </ul>
     </div>
     <a class="navbar-brand" href="logoff.php">Sair</a>
