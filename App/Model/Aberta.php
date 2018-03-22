@@ -16,6 +16,12 @@ class Aberta
     private $descricao;
     private $telefone;
     private $endereco;
+    private $dataAbertura;
+    private $problemaConstatado;
+    private $solucao;
+    private $valor;
+    private $dataFechamento;
+    private $status;
 
     /**
      * @return mixed
@@ -48,12 +54,6 @@ class Aberta
     {
         $this->endereco = $endereco;
     }
-    private $dataAbertura;
-    private $problemaConstatado;
-    private $solucao;
-    private $valor;
-    private $dataFechamento;
-    private $status;
 
     /**
      * @return mixed

@@ -40,7 +40,7 @@ if ($_POST){
     </div>
     <div class="form-group">
         <label for="descricao"><span class="text-danger">*</span> Descrição</label>
-        <input type="text" id="desricao" name="descricao" class="form-control" required>
+        <input type="text" id="descricao" name="descricao" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="dataAbertura">Data de Abertura</label>
@@ -50,7 +50,7 @@ if ($_POST){
         Os campos com <span class="text-danger">*</span> não podem estar em branco.
     </div>
     <button type="submit" class="btn btn-success">
-        <img src="../assets/images/ic_done_white_24px.svg" alt="Cadastrar o produto"> Cadastrar
+        <img src="../assets/images/ic_done_white_24px.svg" alt="Cadastrar Ordem"> Cadastrar
     </button>
 </form>
 

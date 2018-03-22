@@ -10,7 +10,8 @@ namespace App\Model;
 class Usuario
 {
     private $id;
-
+    private $email;
+    private $senha;
     /**
      * @return mixed
      */
@@ -26,8 +27,6 @@ class Usuario
     {
         $this->id = $id;
     }
-    private $email;
-    private $senha;
 
     /**
      * @return mixed

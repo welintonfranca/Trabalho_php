@@ -18,7 +18,8 @@ class AbertaDAO extends Conexao
         try{
             $i = $this->conexao->prepare($sql);
             $i->bindValue("nome", $aberta->getNome());
-            $i->bindValue("endereco", $aberta->getendereco());
+            $i->bindValue("endereco", $aberta->getEndereco());
+            $i->bindValue("telefone", $aberta->getTelefone());
             $i->bindValue("descricao", $aberta->getDescricao());
             $i->bindValue("dataAbertura", $aberta->getDataAbertura());
             $i->execute();
