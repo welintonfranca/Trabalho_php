@@ -1,9 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 00925473200
- * Date: 15/03/2018
- * Time: 20:15
- */
-$a = "admin";
+
+$a = "123";
 echo md5($a);

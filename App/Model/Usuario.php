@@ -5,12 +5,31 @@
  * Date: 08/03/2018
  * Time: 19:36
  */
+
 namespace App\Model;
 
 class Usuario
 {
+    private $id;
     private $email;
     private $senha;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 
     /**
      * @return mixed

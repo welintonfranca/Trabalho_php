@@ -48,6 +48,7 @@ class Aberta
     {
         $this->endereco = $endereco;
     }
+
     private $dataAbertura;
     private $problemaConstatado;
     private $solucao;

@@ -1,15 +1,15 @@
 <?php
 $titulo = "Cadastro de produtos";
-include 'cabecalho.php';?>
-<h1>Abrir O.S</h1>
+include 'cabecalho.php'; ?>
+    <h1>Abrir O.S</h1>
 <?php
 include '../vendor/autoload.php';
 
 //verificar se o usuario esta logado
-//$uDAO = new \App\DAO\UsuarioDAO();
-//$uDAO->verificar();
+$uDAO = new \App\DAO\UsuarioDAO();
+$uDAO->verificar();
 
-if ($_POST){
+if ($_POST) {
     $p = new \App\Model\Aberta();
     $p->setNome($_POST['nome']);
     $p->setEndereco($_POST['endereco']);
@@ -25,33 +25,33 @@ if ($_POST){
 }
 
 ?>
-<form action="inserir.php" method="post">
-    <div class="form-group">
-        <label for="nome"><span class="text-danger">*</span> Nome</label>
-        <input type="text" id="nome" name="nome" class="form-control" autofocus required>
-    </div>
-    <div class="form-group">
-        <label for="endereco"><span class="text-danger">*</span> Endereço</label>
-        <input type="text" id="endereco" name="endereco" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="telefone"><span class="text-danger">*</span> Telefone</label>
-        <input type="text" id="telefone" name="telefone" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="descricao"><span class="text-danger">*</span> Descrição</label>
-        <input type="text" id="desricao" name="descricao" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="dataAbertura">Data de Abertura</label>
-        <input type="date" id="dataAbertura" name="dataAbertura" class="form-control">
-    </div>
-    <div class="form-group">
-        Os campos com <span class="text-danger">*</span> não podem estar em branco.
-    </div>
-    <button type="submit" class="btn btn-success">
-        <img src="../assets/images/ic_done_white_24px.svg" alt="Cadastrar o produto"> Cadastrar
-    </button>
-</form>
+    <form action="inserir.php" method="post">
+        <div class="form-group">
+            <label for="nome"><span class="text-danger">*</span> Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="endereco"><span class="text-danger">*</span> Endereço</label>
+            <input type="text" id="endereco" name="endereco" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="telefone"><span class="text-danger">*</span> Telefone</label>
+            <input type="text" id="telefone" name="telefone" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="descricao"><span class="text-danger">*</span> Descrição</label>
+            <input type="text" id="desricao" name="descricao" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="dataAbertura">Data de Abertura</label>
+            <input type="date" id="dataAbertura" name="dataAbertura" class="form-control">
+        </div>
+        <div class="form-group">
+            Os campos com <span class="text-danger">*</span> não podem estar em branco.
+        </div>
+        <button type="submit" class="btn btn-success">
+            <img src="../assets/images/ic_done_white_24px.svg" alt="Cadastrar o produto"> Cadastrar
+        </button>
+    </form>
 
-<?php include 'rodape.php';?>
+<?php include 'rodape.php'; ?>
