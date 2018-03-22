@@ -4,12 +4,9 @@ CREATE TABLE aberta(
   id          INT           NOT NULL AUTO_INCREMENT,
   nome   VARCHAR(200)  NOT NULL,
   descricao  VARCHAR(200) NOT NULL,
+  endereco  VARCHAR(45) NOT NULL,
+  telefone  VARCHAR(45) NOT NULL,
   dataAbertura DATE NOT NULL,
-  PRIMARY KEY (id)
-);
-CREATE TABLE fechada(
-  id          INT           NOT NULL AUTO_INCREMENT,
-  nome   VARCHAR(200)  NOT NULL,
   problemaConstatado VARCHAR(200),
   solucao VARCHAR(200),
   valor DECIMAL (10,2),

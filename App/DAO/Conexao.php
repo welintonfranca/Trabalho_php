@@ -15,7 +15,7 @@ class Conexao
     private $database = "db_ordemdeservico";
     private $host = "localhost";
     private $user = "root";
-    private $senha = "Suporte99";
+    private $senha = "#9258863709202202#";
 
     /**
      * Conexao constructor.
