@@ -34,7 +34,7 @@ $resultado = $pDAO->visualizar($p);
 <form action="alterar.php" method="post">
     <div class="form-group">
         <label for="id">ID</label>
-        <input type="text" id="id" name="id" class="form-control" value="<?php echo $resultado['id'];?>">
+        <input type="text" id="id" name="id" class="form-control" value="<?php echo $resultado['id'];?>" readonly>
     </div>
     <div class="form-group">
         <label for="problemaConstatado"> Problema Constatado</label>

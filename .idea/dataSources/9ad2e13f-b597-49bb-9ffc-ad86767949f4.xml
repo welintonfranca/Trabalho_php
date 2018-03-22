@@ -948,7 +948,7 @@
     </column>
     <column id="237" parent="230" name="telefone">
       <Position>5</Position>
-      <DataType>varchar(15)|0</DataType>
+      <DataType>varchar(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
