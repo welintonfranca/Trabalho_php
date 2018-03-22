@@ -4,35 +4,46 @@ include 'cabecalho.php';?>
 
 <?php
 include '../vendor/autoload.php';
+session_start();
 
 if ($_POST){
-    $p = new \App\Model\Alterar();
+    $p = new \App\Model\Usuario();
     $p->setId($_POST['id']);
     $p->setEmail($_POST['email']);
-    //$p->setSenha($_POST['senha']);
+    $p->setSenha($_POST['senha']);
 
-    $pDAO = new \App\DAO\AlterarDAO();
-    if ($pDAO->cadUsuario($p))
-        echo "<div class='alert alert-success'> Usuario cadastrado com sucesso!</div>";
+    $pDAO = new \App\DAO\UsuarioDAO();
+    if ($pDAO->alterarUser($p))
+        echo "<div class='alert alert-success'> Usuario alterado com sucesso!</div>";
 
 }
+ $us = new \App\Model\Usuario();
+$us->setId($_SESSION['id']);
+
+$usDAO = new \App\DAO\UsuarioDAO();
+
+$r= $usDAO->consulta($us);
 
 ?>
 
 
     <form action="usuarios.php" method="post">
         <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" class="form-control" autofocus required>
+            <label for="id">Id</label>
+            <input value="<?php echo $r['id']?>" type="number" id="id" name="id" class="form-control" readonly autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input value="<?php echo $r['email']?>" type="text" id="email" name="email" class="form-control" autofocus required>
         </div>
         <div class="form-group">
             <label for="senha">Senha</label>
-            <input type="text" id="senha" name="senha" class="form-control" required>
+            <input type="password" id="senha" name="senha" class="form-control"  required>
         </div>
 
 
         <button type="submit" class="btn btn-success">
-            <img src="../assets/images/ic_done_white_24px.svg" alt="inserir usuario"> Cadastrar
+            <img src="../assets/images/ic_done_white_24px.svg" alt="inserir usuario"> Alterar
         </button>
     </form>
 

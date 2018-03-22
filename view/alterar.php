@@ -5,6 +5,10 @@ include 'cabecalho.php';?>
 
 <?php
 include '../vendor/autoload.php';
+//verificar se o usuario esta logado
+$uDAO = new \App\DAO\UsuarioDAO();
+$uDAO->verificar();
+
 if ($_POST){
 $p2 = new \App\Model\Aberta();
 $p2->setId($_POST['id']);
@@ -50,7 +54,7 @@ $resultado = $pDAO->visualizar($p);
     </div>
 
     <button type="submit" class="btn btn-success">
-        <img src="../assets/images/ic_done_white_24px.svg" alt="Alterar o produto"> Alterar
+        <img src="../assets/images/ic_done_white_24px.svg" alt="inserir Ordem"> Alterar
     </button>
 </form>
 <?php include 'rodape.php';?>
