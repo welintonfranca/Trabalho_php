@@ -11,6 +11,8 @@ class AbertaDAO extends Conexao
     {
         $sql = "insert into aberta (nome,endereco,telefone, descricao, dataAbertura) VALUES (:nome, :endereco, :telefone, :descricao, :dataAbertura)";
         try {
+
+
             $i = $this->conexao->prepare($sql);
             $i->bindValue("nome", $aberta->getNome());
             $i->bindValue("endereco", $aberta->getendereco());
