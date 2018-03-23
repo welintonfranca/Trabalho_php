@@ -1,7 +1,7 @@
 <?php
 $titulo = "Cadastro de produtos";
-include 'cabecalho.php';?>
-<h1>Abrir O.S</h1>
+include 'cabecalho.php'; ?>
+    <h1>Abrir O.S</h1>
 <?php
 include '../vendor/autoload.php';
 
@@ -9,7 +9,7 @@ include '../vendor/autoload.php';
 $uDAO = new \App\DAO\UsuarioDAO();
 $uDAO->verificar();
 
-if ($_POST){
+if ($_POST) {
     $p = new \App\Model\Aberta();
     $p->setNome($_POST['nome']);
     $p->setEndereco($_POST['endereco']);
@@ -25,6 +25,7 @@ if ($_POST){
 }
 
 ?>
+
 <form action="inserir.php" method="post">
     <div class="form-group">
         <label for="nome"><span class="text-danger">*</span> Nome</label>
@@ -54,4 +55,5 @@ if ($_POST){
     </button>
 </form>
 
-<?php include 'rodape.php';?>
+
+<?php include 'rodape.php'; ?>

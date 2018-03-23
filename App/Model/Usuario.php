@@ -5,6 +5,7 @@
  * Date: 08/03/2018
  * Time: 19:36
  */
+
 namespace App\Model;
 
 class Usuario
@@ -12,6 +13,10 @@ class Usuario
     private $id;
     private $email;
     private $senha;
+
+
+
+
     /**
      * @return mixed
      */

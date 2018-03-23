@@ -1,12 +1,12 @@
 <?php
 $titulo = "Alteração de Ordem";
-include 'cabecalho.php';?>
+include 'cabecalho.php'; ?>
 
 <?php
 include '../vendor/autoload.php';
 session_start();
 
-if ($_POST){
+if ($_POST) {
     $p = new \App\Model\Usuario();
     $p->setId($_POST['id']);
     $p->setEmail($_POST['email']);
@@ -17,12 +17,12 @@ if ($_POST){
         echo "<div class='alert alert-success'> Usuario alterado com sucesso!</div>";
 
 }
- $us = new \App\Model\Usuario();
+$us = new \App\Model\Usuario();
 $us->setId($_SESSION['id']);
 
 $usDAO = new \App\DAO\UsuarioDAO();
 
-$r= $usDAO->consulta($us);
+$r = $usDAO->consulta($us);
 
 ?>
 
@@ -30,15 +30,17 @@ $r= $usDAO->consulta($us);
     <form action="usuarios.php" method="post">
         <div class="form-group">
             <label for="id">Id</label>
-            <input value="<?php echo $r['id']?>" type="number" id="id" name="id" class="form-control" readonly autofocus required>
+            <input value="<?php echo $r['id'] ?>" type="number" id="id" name="id" class="form-control" readonly
+                   autofocus required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input value="<?php echo $r['email']?>" type="text" id="email" name="email" class="form-control" autofocus required>
+            <input value="<?php echo $r['email'] ?>" type="text" id="email" name="email" class="form-control" autofocus
+                   required>
         </div>
         <div class="form-group">
             <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" class="form-control"  required>
+            <input type="password" id="senha" name="senha" class="form-control" required>
         </div>
 
 
@@ -47,4 +49,4 @@ $r= $usDAO->consulta($us);
         </button>
     </form>
 
-<?php include 'rodape.php';?>
+<?php include 'rodape.php'; ?>

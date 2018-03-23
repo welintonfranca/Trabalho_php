@@ -1,6 +1,6 @@
 <?php
 $titulo = "Pesquisa de produtos";
-include 'cabecalho.php';?>
+include 'cabecalho.php'; ?>
     <h1>Pesquisar O.S</h1>
     <br>
     <form class="form-inline" action="pesquisar.php" method="get">
@@ -44,15 +44,15 @@ if (count($fechamento) > 0) {
 
         </tr>
         <?php
-        foreach ($fechamento as $fechamento){
+        foreach ($fechamento as $fechamento) {
             echo "<tr class='text-center'>";
             echo "<td>{$fechamento->getId()}";
             echo "<td class='text-left'>{$fechamento->getNome()}";
             echo "<td class='text-left'>{$fechamento->getDescricao()}";
             echo "<td class='text-left'>{$fechamento->getProblemaConstatado()}";
-            echo "<td>".App\Helper\Moeda::get($fechamento->getValor())."</td>";
-            echo "<td>".App\Helper\Data::get($fechamento->getDataAbertura())."</td>";
-            echo "<td>".App\Helper\Data::get($fechamento->getDataFechamento())."</td>";
+            echo "<td>" . App\Helper\Moeda::get($fechamento->getValor()) . "</td>";
+            echo "<td>" . App\Helper\Data::get($fechamento->getDataAbertura()) . "</td>";
+            echo "<td>" . App\Helper\Data::get($fechamento->getDataFechamento()) . "</td>";
             echo "<td><a class='btn btn-warning' href='alterar.php?id={$fechamento->getId()}'>Alterar</a></td>";
             echo "</tr>";
         }

@@ -5,13 +5,14 @@
  * Date: 08/03/2018
  * Time: 19:36
  */
+
 namespace App\DAO;
 class UsuarioDAO extends Conexao
 {
     public function login($usuario)
     {
         $sql = "select * from usuarios where email = :email and senha = :senha";
-        try{
+        try {
             $p = $this->conexao->prepare($sql);
             $p->bindValue(":email", $usuario->getEmail());
             $p->bindValue(":senha", \App\Helper\Senha::gerar($usuario->getSenha()));
@@ -21,14 +22,16 @@ class UsuarioDAO extends Conexao
             $_SESSION['id'] = $resultado['id'];
             return $resultado;
 
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             echo $e->getMessage();
         }
 
     }
-    public function consulta($usuario){
+
+    public function consulta($usuario)
+    {
         $sql = " select * from usuarios where id= :id";
-        try{
+        try {
             $p = $this->conexao->prepare($sql);
             $p->bindValue(":id", $usuario->getId());
 
@@ -37,14 +40,16 @@ class UsuarioDAO extends Conexao
 
             return $resultado;
 
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             echo $e->getMessage();
         }
 
     }
-    public function alterarUser($usuario){
+
+    public function alterarUser($usuario)
+    {
         $sql = " update usuarios set email= :email, senha= :senha where id= :id";
-        try{
+        try {
             $p = $this->conexao->prepare($sql);
             $p->bindValue(":email", $usuario->getEmail());
             $p->bindValue(":senha", \App\Helper\Senha::gerar($usuario->getSenha()));
@@ -53,10 +58,11 @@ class UsuarioDAO extends Conexao
             $p->execute();
             return true;
 
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             echo $e->getMessage();
         }
     }
+
     public function logoff()
     {
         session_start();
@@ -64,6 +70,7 @@ class UsuarioDAO extends Conexao
         session_destroy();
         header("Location: login.php");
     }
+
     public function verificar()
     {
         session_start();
