@@ -34,6 +34,7 @@ if (count($fechamento) > 0) {
         <tr class='text-center'>
             <th>ID</th>
             <th class="text-left">Nome</th>
+            <th>Endereço</th>
             <th>Descrição</th>
             <th>Problema Constatado</th>
             <th>Valor</th>
@@ -48,6 +49,7 @@ if (count($fechamento) > 0) {
             echo "<tr class='text-center'>";
             echo "<td>{$fechamento->getId()}";
             echo "<td class='text-left'>{$fechamento->getNome()}";
+            echo "<td class='text-left'>{$fechamento->getEndereco()}";
             echo "<td class='text-left'>{$fechamento->getDescricao()}";
             echo "<td class='text-left'>{$fechamento->getProblemaConstatado()}";
             echo "<td>" . App\Helper\Moeda::get($fechamento->getValor()) . "</td>";
@@ -61,7 +63,7 @@ if (count($fechamento) > 0) {
 
     <?php
 } else {
-    echo "<div class='alert alert-danger'>Não existem produtos com a pesquisa informata!</div>";
+    echo "<div class='alert alert-danger'>Não existem Serviço aberto com a pesquisa informata!</div>";
 }
 include 'rodape.php';
 ?>
